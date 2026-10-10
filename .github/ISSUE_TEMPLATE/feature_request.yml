@@ -1,0 +1,11 @@
+name: Feature request / 功能建议
+description: Suggest a MeowTools improvement / 提出改进建议
+title: "[Feature] "
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: Problem and suggested behavior / 使用场景与期望行为
+      description: Explain what you need and how it would help / 请说明需求与实际用途
+    validations:
+      required: true

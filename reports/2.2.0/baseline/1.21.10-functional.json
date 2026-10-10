@@ -1,0 +1,310 @@
+{
+  "version": "1.21.10",
+  "bridge": false,
+  "suite": "functional",
+  "cases": [
+    {
+      "name": "Real clients join and plugin enabled without PlaceholderAPI",
+      "passed": true,
+      "evidence": {
+        "server": "1.21.10-130-8043efd (MC: 1.21.10)",
+        "clients": [
+          "AdminA",
+          "AdminB",
+          "Target",
+          "Watcher"
+        ],
+        "plugins": [
+          "MeowTools",
+          "MeowToolsLiveProbe"
+        ]
+      }
+    },
+    {
+      "name": "Localized help and ping commands reach client",
+      "passed": true,
+      "evidence": [
+        "[MeowTools] Commands:",
+        "[MeowTools] /mt ping [player] - Check latency",
+        "[MeowTools] /mt inv [player] - Inspect/edit inventory",
+        "[MeowTools] /mt vanish [player] [on|off] - Vanish",
+        "[MeowTools] /mt reload - Reload configuration",
+        "[MeowTools] Player Target's ping: 3ms"
+      ]
+    },
+    {
+      "name": "Unauthorized inventory command denied",
+      "passed": true
+    },
+    {
+      "name": "Blocked commands and operator bypass",
+      "passed": true
+    },
+    {
+      "name": "Two administrators see same authoritative inventory",
+      "passed": true
+    },
+    {
+      "name": "Left click removes item and updates both viewers",
+      "passed": true
+    },
+    {
+      "name": "Right click splits authoritative stack",
+      "passed": true
+    },
+    {
+      "name": "Placement and shift extraction conserve items",
+      "passed": true
+    },
+    {
+      "name": "Number key swaps real hotbar slots",
+      "passed": true
+    },
+    {
+      "name": "Armor validation rejects non-equipment without loss",
+      "passed": true
+    },
+    {
+      "name": "Decorations cannot be extracted",
+      "passed": true
+    },
+    {
+      "name": "Shift insertion from lower inventory is blocked",
+      "passed": true
+    },
+    {
+      "name": "Double-click collection cannot pull projected items",
+      "passed": true
+    },
+    {
+      "name": "Drag across projected slots is cancelled without loss",
+      "passed": true
+    },
+    {
+      "name": "Valid armor replacement and offhand editing work",
+      "passed": true
+    },
+    {
+      "name": "Closing stale GUI preserves concurrent target change",
+      "passed": true
+    },
+    {
+      "name": "Vanish hides player, repeated on is idempotent",
+      "passed": true
+    },
+    {
+      "name": "Reload keeps vanish and inventory feature usable",
+      "passed": true
+    },
+    {
+      "name": "Vanish off restores visibility and removes owned night vision",
+      "passed": true
+    },
+    {
+      "name": "Unknown language falls back to usable English help",
+      "passed": true
+    },
+    {
+      "name": "Invalid YAML reload reports failure and preserves file",
+      "passed": true
+    },
+    {
+      "name": "F packet triggers configured shortcut; disabled directional binding falls back",
+      "passed": true
+    },
+    {
+      "name": "Shortcut cooldown suppresses rapid repeat packets",
+      "passed": true,
+      "evidence": {
+        "executed": 1,
+        "sent": 8
+      }
+    },
+    {
+      "name": "Real XP pickup: double",
+      "passed": true,
+      "evidence": {
+        "xp": 62,
+        "orbTotal": 0,
+        "pickups": 1,
+        "merges": 1,
+        "blockedMerges": 0
+      }
+    },
+    {
+      "name": "Real XP pickup: zero",
+      "passed": true,
+      "evidence": {
+        "xp": 0,
+        "orbTotal": 0,
+        "pickups": 1,
+        "merges": 1,
+        "blockedMerges": 0
+      }
+    },
+    {
+      "name": "Real XP pickup: normal",
+      "passed": true,
+      "evidence": {
+        "xp": 31,
+        "orbTotal": 0,
+        "pickups": 1,
+        "merges": 1,
+        "blockedMerges": 0
+      }
+    },
+    {
+      "name": "Real XP pickup: cancelMerge",
+      "passed": true,
+      "evidence": {
+        "xp": 31,
+        "orbTotal": 0,
+        "pickups": 5,
+        "merges": 3,
+        "blockedMerges": 3
+      }
+    },
+    {
+      "name": "Real XP pickup: cancel",
+      "passed": true,
+      "evidence": {
+        "xp": 0,
+        "orbTotal": 31,
+        "pickups": 16,
+        "merges": 0,
+        "blockedMerges": 0
+      }
+    },
+    {
+      "name": "Vanilla Mending repairs item before granting remaining XP",
+      "passed": true,
+      "evidence": {
+        "type": "DIAMOND_PICKAXE",
+        "count": 1,
+        "damage": 60
+      }
+    },
+    {
+      "name": "Fast leaves decay respects persistent leaves and cancelled decay",
+      "passed": true,
+      "evidence": {
+        "leaves": [
+          "AIR",
+          "OAK_LEAVES",
+          "OAK_LEAVES"
+        ],
+        "events": 2
+      }
+    },
+    {
+      "name": "Real explosion protection: tnt",
+      "passed": true,
+      "evidence": {
+        "health": 20,
+        "block": "STONE",
+        "explosions": 1,
+        "damage": [
+          {
+            "health": 20,
+            "tick": 544,
+            "damageType": "minecraft:explosion",
+            "cancelled": true,
+            "damage": 49.429840087890625,
+            "damager": "TNT",
+            "cause": "BLOCK_EXPLOSION"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real explosion protection: creeper",
+      "passed": true,
+      "evidence": {
+        "health": 20,
+        "block": "STONE",
+        "explosions": 1,
+        "damage": [
+          {
+            "health": 20,
+            "tick": 565,
+            "damageType": "minecraft:player_explosion",
+            "cancelled": true,
+            "damage": 39.90250015258789,
+            "damager": "CREEPER",
+            "cause": "ENTITY_EXPLOSION"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real explosion protection: other",
+      "passed": true,
+      "evidence": {
+        "health": 20,
+        "block": "STONE",
+        "explosions": 1,
+        "damage": [
+          {
+            "health": 20,
+            "tick": 581,
+            "damageType": "minecraft:explosion",
+            "cancelled": true,
+            "damage": 43,
+            "damager": "none",
+            "cause": "BLOCK_EXPLOSION"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Repeated death suppresses duplicate messages",
+      "passed": true,
+      "evidence": {
+        "visible": 1,
+        "suppressed": 1
+      }
+    },
+    {
+      "name": "Target quit closes all viewers and cancels refresh task",
+      "passed": true
+    },
+    {
+      "name": "Vanish quit/rejoin removes owned effects and state",
+      "passed": true,
+      "evidence": {
+        "nightVision": false
+      }
+    },
+    {
+      "name": "Disable clears scheduled plugin tasks and active vanish",
+      "passed": true
+    }
+  ],
+  "clientErrors": [],
+  "performance": [],
+  "paperBuild": 130,
+  "serverLog": "build\\live-servers\\1.21.10\\console-functional.log",
+  "serverErrors": [
+    "\u001b[31;1m[13:55:02 ERROR]: [MeowTools] Configuration could not be loaded safely",
+    "org.bukkit.configuration.InvalidConfigurationException: while parsing a flow sequence",
+    "Caused by: org.yaml.snakeyaml.parser.ParserException: while parsing a flow sequence",
+    "\u001b[31;1m[13:55:02 ERROR]: [MeowTools] Reload failed",
+    "java.lang.IllegalStateException: Invalid MeowTools configuration",
+    "Caused by: org.bukkit.configuration.InvalidConfigurationException: while parsing a flow sequence",
+    "Caused by: org.yaml.snakeyaml.parser.ParserException: while parsing a flow sequence"
+  ],
+  "java": "C:\\Program Files\\Java\\jdk-21\\bin\\java.exe",
+  "serverSHA256": "158703f75a26f842ea656b3dc6d75bf3d1ec176b97a2c36384d0b80b3871af53",
+  "pluginSHA256": "654b7434d95f00283dff43afbf4bef359266b7f68f32a0b9ebcbd5f5215a2e7c",
+  "expectedErrorLines": [
+    "\u001b[31;1m[13:55:02 ERROR]: [MeowTools] Configuration could not be loaded safely",
+    "org.bukkit.configuration.InvalidConfigurationException: while parsing a flow sequence",
+    "Caused by: org.yaml.snakeyaml.parser.ParserException: while parsing a flow sequence",
+    "\u001b[31;1m[13:55:02 ERROR]: [MeowTools] Reload failed",
+    "java.lang.IllegalStateException: Invalid MeowTools configuration",
+    "Caused by: org.bukkit.configuration.InvalidConfigurationException: while parsing a flow sequence",
+    "Caused by: org.yaml.snakeyaml.parser.ParserException: while parsing a flow sequence"
+  ],
+  "environmentWarnings": [],
+  "unexpectedServerErrors": []
+}

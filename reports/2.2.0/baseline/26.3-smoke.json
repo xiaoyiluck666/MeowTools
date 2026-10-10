@@ -1,0 +1,29 @@
+{
+  "version": "26.3",
+  "bridge": false,
+  "suite": "smoke",
+  "cases": [
+    {
+      "name": "Plugin enables on real Paper server",
+      "passed": true,
+      "evidence": {
+        "server": "26.3-169-46d4834 (MC: 26.3)",
+        "plugins": [
+          "MeowTools",
+          "MeowToolsLiveProbe"
+        ]
+      }
+    }
+  ],
+  "clientErrors": [],
+  "performance": [],
+  "paperBuild": 169,
+  "serverLog": "build\\live-servers\\26.3\\console-smoke.log",
+  "serverErrors": [],
+  "java": "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\java.exe",
+  "serverSHA256": "185d9f4267afca48959d6a56150cf8803b6645aee10de3ed147df7ab1ff781fb",
+  "pluginSHA256": "654b7434d95f00283dff43afbf4bef359266b7f68f32a0b9ebcbd5f5215a2e7c",
+  "expectedErrorLines": [],
+  "environmentWarnings": [],
+  "unexpectedServerErrors": []
+}

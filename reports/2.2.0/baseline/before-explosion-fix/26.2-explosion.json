@@ -1,0 +1,71 @@
+{
+  "version": "26.2",
+  "bridge": true,
+  "suite": "explosion",
+  "cases": [
+    {
+      "name": "Real explosion protection: tnt",
+      "passed": true,
+      "evidence": {
+        "health": 20,
+        "block": "STONE",
+        "explosions": 1,
+        "damage": [
+          {
+            "damage": 49.429840087890625,
+            "tick": 55,
+            "cause": "BLOCK_EXPLOSION",
+            "health": 20,
+            "damager": "TNT",
+            "cancelled": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real explosion protection: creeper",
+      "passed": true,
+      "evidence": {
+        "health": 20,
+        "block": "STONE",
+        "explosions": 1,
+        "damage": [
+          {
+            "damage": 49.429840087890625,
+            "tick": 55,
+            "cause": "BLOCK_EXPLOSION",
+            "health": 20,
+            "damager": "TNT",
+            "cancelled": true
+          },
+          {
+            "damage": 39.90250015258789,
+            "tick": 76,
+            "cause": "ENTITY_EXPLOSION",
+            "health": 20,
+            "damager": "CREEPER",
+            "cancelled": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real explosion protection: other",
+      "passed": false,
+      "error": "Error: Explosion protection failed: {\"damage\":[{\"damage\":39.90250015258789,\"tick\":76,\"cause\":\"ENTITY_EXPLOSION\",\"health\":20,\"damager\":\"CREEPER\",\"cancelled\":true},{\"damage\":43,\"tick\":91,\"cause\":\"CUSTOM\",\"health\":20,\"damager\":\"none\",\"cancelled\":false}],\"deaths\":[{\"player\":\"Target\",\"messagePresent\":true,\"tick\":91}]}\n    at assert (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:12:56)\n    at E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:75:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:21:26)\n    at async explosionCases (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:71:5)\n    at async main (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:221:95)"
+    },
+    {
+      "name": "Repeated death suppresses duplicate messages",
+      "passed": false,
+      "error": "Error: Death counts: first=1/1, second=1/2, final=1/2\n    at assert (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:12:56)\n    at deathCase (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:66:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:21:26)\n    at async main (E:\\Code2026\\MeowTools\\scripts\\live\\clients.cjs:221:119)"
+    }
+  ],
+  "clientErrors": [],
+  "performance": [],
+  "paperBuild": 133,
+  "serverLog": "build\\live-servers\\26.2\\console-explosion.log",
+  "serverErrors": [],
+  "java": "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\java.exe",
+  "serverSHA256": "bf1dcf627364f8a631ab15250d240eb5a8e89faaac523b391e1c61367fce9ff1",
+  "pluginSHA256": "76a03c95fe0df91855eb0decea620f1663ac7570c327f00d0080a376f6ea5f0f"
+}

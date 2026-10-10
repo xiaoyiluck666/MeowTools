@@ -1,0 +1,173 @@
+# MeowTools Configuration
+config-version: 1
+
+# Language: en_us, zh_cn
+language: zh_cn
+
+# Server Feature Settings
+server_settings:
+  # Join and Quit Messages
+  # Customize messages when players join or leave.
+  # Set to "none" or empty string to disable specific message.
+  # Supports color codes (&a, &b, etc.) and placeholders: {player}
+  join_quit_messages:
+    enabled: true
+    # Whether to show join messages.
+    show_join: true
+    # Whether to show quit messages.
+    show_quit: true
+    # Default messages
+    join: "&8[&a+&8] &7{player}"
+    quit: "&8[&c-&8] &7{player}"
+    
+    # Custom messages based on permissions.
+    # Format: permission_suffix: "message"
+    # Permission will be: meowtools.join.<suffix> or meowtools.quit.<suffix>
+    # Priority is top to bottom (first matching permission wins).
+    custom_join:
+      admin: "&8[&cAdmin&8] &c{player} &ejoined the game."
+      vip: "&8[&bVIP&8] &b{player} &ejoined the game."
+    custom_quit:
+      admin: "&8[&cAdmin&8] &c{player} &eleft the game."
+      vip: "&8[&bVIP&8] &b{player} &eleft the game."
+
+  # Death Message Anti-Spam
+  # Prevent repeated death messages from spamming the chat.
+  death_message_control:
+    enabled: true
+    # Minimum time in seconds between visible death messages for the same player.
+    # If the player dies again within this window, the message will be hidden.
+    cooldown_seconds: 10
+    # If true, only suppress when the death message text is the same as last time.
+    # If false, any death within cooldown will be hidden.
+    same_message_only: true
+
+  # Explosion Settings
+  explosion_settings:
+    tnt:
+      break_blocks: true
+      damage_entities: true
+    creeper:
+      break_blocks: true
+      damage_entities: true
+    other:
+      break_blocks: true
+      damage_entities: true
+
+  # Command Blocking Settings
+  blocked_commands:
+    enabled: true
+    # List of commands to block.
+    # Matches exact command or "plugin:command".
+    list:
+      - "plugins"
+      - "pl"
+      - "about"
+      - "version"
+      - "ver"
+      - "?"
+      - "me"
+      - "minecraft:me"
+      - "bukkit:plugins"
+      - "bukkit:pl"
+      - "bukkit:about"
+      - "bukkit:version"
+      - "bukkit:ver"
+      - "bukkit:?"
+      - "icanhasbukkit"
+    # Message to send when a command is blocked.
+    # Set to "none" to disable message.
+    message: "&fUnknown command. Type \"/help\" for help."
+
+  # Diagnostic: inspect command-level declared permissions (not arbitrary subcommands).
+  # Set enabled to false to completely disable this global detection.
+  permission_probe:
+    enabled: false
+
+  fast_leaf_decay:
+    enabled: true
+    max_decay_per_tick: 10
+    max_queue_size: 10000
+
+  # Experience Multiplier Settings
+  # Controls how much experience players get from picking up orbs.
+  exp_multiplier:
+    enabled: true
+    # Default multiplier if no specific permission is found.
+    default_multiplier: 1.0
+    # Custom multipliers based on permissions.
+    # 1. Dynamic: meowtools.exp.<multiplier> (e.g., meowtools.exp.2.5)
+    # 2. Predefined: meowtools.exp.<suffix> (priority is top to bottom)
+    custom:
+      vip: 1.5
+      admin: 2.0
+    # Merge nearby untagged orbs with matching source information.
+    # Vanilla still handles pickup, Mending and experience events.
+    optimize_nearby: true
+    # Radius in blocks to search for nearby orbs when one is picked up.
+    # Clamped to 0..4 blocks; 0 disables merging.
+    optimize_radius: 1.5
+    max_merge_per_pickup: 32
+
+# Vanish Settings
+vanish_settings:
+  # Whether to give night vision effect when vanished
+  night_vision: true
+
+
+# Shortcut Settings
+# Available triggers: F, SHIFT_F, LOOK_UP_F, LOOK_DOWN_F
+# Commands are executed by the player.
+shortcuts:
+  cooldown_millis: 250
+  f:
+    enabled: true
+    commands:
+    
+      - "say I pressed F!"
+  shift_f:
+    enabled: true
+    commands:
+      - "say I pressed Shift + F!"
+  look_up_f:
+    enabled: true
+    threshold: -45.0 # Pitch less than this (looking up)
+    commands:
+      - "say I am looking up and pressed F!"
+  look_down_f:
+    enabled: true
+    threshold: 45.0 # Pitch greater than this (looking down)
+    commands:
+      - "say I am looking down and pressed F!"
+  look_up_shift_f:
+    enabled: true
+    threshold: -45.0 # Pitch less than this (looking up)
+    commands:
+      - "say I am looking up and pressed Shift + F!"
+  look_down_shift_f:
+    enabled: true
+    threshold: 45.0 # Pitch greater than this (looking down)
+    commands:
+      - "say I am looking down and pressed Shift + F!"
+
+inv_view:
+  header_slots:
+    5:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: "&7信息一"
+      lore:
+        - "&7这里可以自定义显示变量，例如: &f%player_name%"
+    6:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: "&7信息二"
+      lore: []
+    7:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: "&7信息三"
+      lore: []
+  player_head:
+    name: "&e{player}"
+    lore:
+      - "&7生命值: &a{health}/{max_health}"
+      - "&7经验: &a{exp_level} 级 &7({exp_percent}%)"
+      - "&7饱食度: &a{food}/20"

@@ -1,0 +1,92 @@
+{
+  "version": "26.3",
+  "bridge": true,
+  "suite": "performance",
+  "cases": [
+    {
+      "name": "All 20 clients remain connected after stress",
+      "passed": true,
+      "evidence": {
+        "players": 20
+      }
+    }
+  ],
+  "clientErrors": [],
+  "performance": [
+    {
+      "phase": "idle20",
+      "seconds": 60.3962545,
+      "ticks": 1208,
+      "observedTPS": 20.001240308701593,
+      "meanMSPT": 0.7955887417218542,
+      "p50MSPT": 0.7539,
+      "p95MSPT": 1.3024,
+      "p99MSPT": 1.6532,
+      "maxMSPT": 2.361,
+      "ticksOver50ms": 0,
+      "processCPUSeconds": 13.984375,
+      "usedHeapMiB": 588.5156402587891,
+      "players": 20,
+      "requests": 0,
+      "pingResponses": 0,
+      "pingP95ms": null,
+      "orbsAtEnd": 0,
+      "pickupCallbacks": 0,
+      "mergeCallbacks": 0,
+      "inventoryViews": 0
+    },
+    {
+      "phase": "combined20",
+      "seconds": 60.6068215,
+      "ticks": 1217,
+      "observedTPS": 20.080247897507707,
+      "meanMSPT": 2.380166721446179,
+      "p50MSPT": 1.6835,
+      "p95MSPT": 4.2714,
+      "p99MSPT": 23.322,
+      "maxMSPT": 71.2723,
+      "ticksOver50ms": 1,
+      "processCPUSeconds": 35.40625,
+      "usedHeapMiB": 345.57049560546875,
+      "players": 20,
+      "requests": 1140,
+      "pingResponses": 1140,
+      "pingP95ms": 6,
+      "orbsAtEnd": 0,
+      "pickupCallbacks": 228,
+      "mergeCallbacks": 6612,
+      "inventoryViews": 0
+    },
+    {
+      "phase": "combined20_with19_inventory_views",
+      "seconds": 60.5079523,
+      "ticks": 1211,
+      "observedTPS": 20.01389823928978,
+      "meanMSPT": 2.2900149463253507,
+      "p50MSPT": 1.8796,
+      "p95MSPT": 4.1851,
+      "p99MSPT": 7.8068,
+      "maxMSPT": 21.0281,
+      "ticksOver50ms": 0,
+      "processCPUSeconds": 28.65625,
+      "usedHeapMiB": 765.8754653930664,
+      "players": 20,
+      "requests": 1140,
+      "pingResponses": 1140,
+      "pingP95ms": 8,
+      "orbsAtEnd": 0,
+      "pickupCallbacks": 228,
+      "mergeCallbacks": 6612,
+      "inventoryViews": 19
+    }
+  ],
+  "paperBuild": 169,
+  "serverLog": "build\\live-servers\\26.3\\console-performance.log",
+  "serverErrors": [],
+  "java": "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\java.exe",
+  "serverSHA256": "185d9f4267afca48959d6a56150cf8803b6645aee10de3ed147df7ab1ff781fb",
+  "pluginSHA256": "654b7434d95f00283dff43afbf4bef359266b7f68f32a0b9ebcbd5f5215a2e7c",
+  "expectedErrorLines": [],
+  "environmentWarnings": [],
+  "unexpectedServerErrors": []
+}

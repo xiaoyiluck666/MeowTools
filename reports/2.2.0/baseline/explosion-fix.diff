@@ -1,0 +1,42 @@
+--- before/ServerSettingsModule.java
++++ after/ServerSettingsModule.java
+@@ -4,6 +4,7 @@
+ import com.xiaoyiluck.meowtools.module.Module;
+ import net.kyori.adventure.text.Component;
+ import org.bukkit.Bukkit;
++import org.bukkit.NamespacedKey;
+ import org.bukkit.configuration.ConfigurationSection;
+ import org.bukkit.entity.Creeper;
+ import org.bukkit.entity.Entity;
+@@ -22,6 +23,7 @@
+ import java.util.HashMap;
+ import java.util.Map;
+ import java.util.UUID;
++import java.util.Set;
+ 
+ public class ServerSettingsModule implements Module, Listener {
+ 
+@@ -39,6 +41,9 @@
+     private boolean creeperDamageEntities = true;
+     private boolean otherBreakBlocks = true;
+     private boolean otherDamageEntities = true;
++    private static final Set<NamespacedKey> EXPLOSION_DAMAGE_TYPES = Set.of(
++            NamespacedKey.minecraft("explosion"), NamespacedKey.minecraft("player_explosion"),
++            NamespacedKey.minecraft("bad_respawn_point"), NamespacedKey.minecraft("fireworks"));
+ 
+     public ServerSettingsModule(MeowTools plugin) {
+         this.plugin = plugin;
+@@ -164,8 +169,11 @@
+     @EventHandler(ignoreCancelled = true)
+     public void onEntityDamage(EntityDamageEvent event) {
+         if (event.getCause() != EntityDamageEvent.DamageCause.ENTITY_EXPLOSION
+-                && event.getCause() != EntityDamageEvent.DamageCause.BLOCK_EXPLOSION) return;
+-        Entity damager = event instanceof EntityDamageByEntityEvent byEntity ? byEntity.getDamager() : null;
++                && event.getCause() != EntityDamageEvent.DamageCause.BLOCK_EXPLOSION
++                // Paper can expose source-less World#createExplosion damage as CUSTOM.
++                && !EXPLOSION_DAMAGE_TYPES.contains(event.getDamageSource().getDamageType().getKey())) return;
++        Entity damager = event instanceof EntityDamageByEntityEvent byEntity ? byEntity.getDamager()
++                : event.getDamageSource().getDirectEntity();
+         boolean allowed = damager instanceof TNTPrimed ? tntDamageEntities
+                 : damager instanceof Creeper ? creeperDamageEntities : otherDamageEntities;
+         if (!allowed) event.setCancelled(true);

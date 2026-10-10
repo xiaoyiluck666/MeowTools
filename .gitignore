@@ -1,0 +1,12 @@
+.gradle/
+build/
+bin/
+run/
+.serena/cache/
+.serena/
+.vscode/
+*.log
+.env
+.env.*
+.codex/
+AGENTS.md

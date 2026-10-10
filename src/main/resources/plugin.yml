@@ -1,0 +1,38 @@
+name: MeowTools
+version: '${version}'
+main: com.xiaoyiluck.meowtools.MeowTools
+api-version: '1.21.10'
+authors: [xiaoyiluck]
+description: Configurable administration and survival tools for Paper 1.21.10+ and 26.x.
+softdepend: [PlaceholderAPI]
+commands:
+  meowtools:
+    description: MeowTools 主命令
+    usage: /meowtools <subcommand> [args]
+    aliases: [mt]
+    permission: meowtools.use
+permissions:
+  meowtools.use:
+    description: 允许使用基础命令
+    default: true
+  meowtools.admin:
+    description: 管理员权限
+    default: op
+  meowtools.ping:
+    description: 允许使用 ping 命令
+    default: true
+  meowtools.inv:
+    description: 允许查看玩家背包
+    default: op
+  meowtools.vanish:
+    description: 允许隐身
+    default: op
+  meowtools.vanish.see:
+    description: 允许看到隐身玩家
+    default: op
+  meowtools.vanish.other:
+    description: 允许让其他人隐身
+    default: op
+  meowtools.bypass.blocked_commands:
+    description: Bypass configured command blocking
+    default: op

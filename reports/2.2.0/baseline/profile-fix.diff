@@ -1,0 +1,25 @@
+--- before/InvCommand.java
++++ after/InvCommand.java
+@@ -218,7 +218,7 @@
+             return head;
+         }
+         SkullMeta meta = (SkullMeta) baseMeta;
+-        if (previous == null) meta.setOwningPlayer(target);
++        if (previous == null) applyAvailableProfile(target, meta);
+ 
+         ConfigurationSection headSection = plugin.getConfig().getConfigurationSection("inv_view.player_head");
+         String nameTemplate;
+@@ -320,6 +320,13 @@
+         return head;
+     }
+ 
++    static void applyAvailableProfile(Player target, SkullMeta meta) {
++        var profile = target.getPlayerProfile();
++        // Incomplete skull owners make Paper retry Mojang lookups whenever lore
++        // is refreshed. Use already available textures; otherwise keep the default head.
++        if (profile != null && profile.hasTextures()) meta.setPlayerProfile(profile);
++    }
++
+     private void setIfChanged(Inventory view, int slot, ItemStack item) {
+         if (!Objects.equals(view.getItem(slot), item)) view.setItem(slot, item);
+     }

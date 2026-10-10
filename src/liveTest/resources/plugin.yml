@@ -1,0 +1,8 @@
+name: MeowToolsLiveProbe
+version: '1.0'
+main: com.xiaoyiluck.meowtools.live.LiveProbe
+api-version: '1.21.10'
+depend: [MeowTools]
+commands:
+  mtprobe:
+    description: Console-only instrumentation for an isolated test server

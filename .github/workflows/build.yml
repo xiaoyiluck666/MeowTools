@@ -1,0 +1,37 @@
+name: Build and compatibility
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * 1'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            25
+            21
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Check published Minecraft releases
+        run: python scripts/check_paper_releases.py
+      - name: Build Java 21 plugin and verify all supported APIs
+        run: bash ./gradlew --no-daemon build checkCompatibility
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reports
+          path: build/reports/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MeowTools
+          path: build/libs/MeowTools-*.jar

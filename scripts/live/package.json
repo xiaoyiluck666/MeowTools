@@ -1,0 +1,8 @@
+{
+  "name": "meowtools-live-tests",
+  "private": true,
+  "dependencies": {
+    "mineflayer": "4.39.0",
+    "rcon-client": "4.2.5"
+  }
+}

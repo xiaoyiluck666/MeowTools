@@ -1,0 +1,16 @@
+{
+  "classes_identical": 24,
+  "changed_entries": [
+    "plugin.yml"
+  ],
+  "sha256": "f620f2096f324f4d5f65f4f6a795cb7c6105004121848b34ceff67ab87f28633",
+  "size": 70112,
+  "test_counts": {
+    "test": 32,
+    "testPaper1_21_11": 32,
+    "testPaper26_1_1": 32,
+    "testPaper26_1_2": 32,
+    "testPaper26_2": 32,
+    "testPaper26_3": 32
+  }
+}
