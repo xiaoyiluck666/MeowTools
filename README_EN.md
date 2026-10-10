@@ -1,12 +1,12 @@
 # 🐾 MeowTools
 
-**Everyday staff tools and survival tweaks, together in one configurable Paper plugin.**
+**Vanish, edit inventories, and put your server commands on the F key.**
 
-Inspect live inventories, vanish while moderating, bind commands to the F key, and tune leaf decay, experience and explosions. Install MeowTools on the server; players need no client mod.
+A server-side toolkit for Paper survival and community servers. Give staff live inventory editing and vanish, let players trigger your server commands with F-key shortcuts, and configure leaf decay, XP and explosions in the same plugin. Players need no client mod.
 
 [![Modrinth](https://img.shields.io/badge/Modrinth-Download-1bd96a?style=flat-square&logo=modrinth&logoColor=white)](https://modrinth.com/plugin/meowtools/versions) [![Documentation](https://img.shields.io/badge/GitHub-Documentation-181717?style=flat-square&logo=github)](https://github.com/xiaoyiluck666/MeowTools/blob/main/README_EN.md) [![Report a bug](https://img.shields.io/badge/GitHub-Report_a_bug-d73a4a?style=flat-square&logo=github)](https://github.com/xiaoyiluck666/MeowTools/issues/new/choose)
 
-💖 Support development: [PayPal](https://www.paypal.com/paypalme/neworldcn) · [Afdian / 爱发电](https://afdian.com/a/xiaoyiluck)
+**[⬇ Download MeowTools](https://modrinth.com/plugin/meowtools/versions)** — one JAR for the supported Paper releases listed below. See the [feature overview](README.md) for a quick introduction.
 
 ## Quick start
 

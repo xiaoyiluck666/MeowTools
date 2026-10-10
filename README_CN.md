@@ -1,12 +1,12 @@
 # 🐾 MeowTools
 
-**把常用管理工具和生存体验微调，集中到一个可配置的 Paper 插件中。**
+**隐身巡查、实时改背包，把常用指令绑到 F 键。**
 
-实时检查背包、隐身管理、用 F 键执行常用命令，并按需调整落叶、经验和爆炸行为。只需安装在服务端，玩家无需客户端模组。
+面向 Paper 生存服与社区服的服务端工具箱：为管理员提供实时背包编辑与隐身，为玩家提供常用指令快捷操作，并按需调整落叶、经验和爆炸行为。玩家无需安装客户端模组。
 
 [![Modrinth](https://img.shields.io/badge/Modrinth-Download-1bd96a?style=flat-square&logo=modrinth&logoColor=white)](https://modrinth.com/plugin/meowtools/versions) [![Documentation](https://img.shields.io/badge/GitHub-Documentation-181717?style=flat-square&logo=github)](https://github.com/xiaoyiluck666/MeowTools/blob/main/README_CN.md) [![Report a bug](https://img.shields.io/badge/GitHub-Report_a_bug-d73a4a?style=flat-square&logo=github)](https://github.com/xiaoyiluck666/MeowTools/issues/new/choose)
 
-💖 支持项目开发：[PayPal](https://www.paypal.com/paypalme/neworldcn) · [爱发电](https://afdian.com/a/xiaoyiluck)
+**[⬇ 下载 MeowTools](https://modrinth.com/plugin/meowtools/versions)** — 一个 JAR 支持下方列出的 Paper 正式版本。想快速了解功能，可先看[项目介绍](README.md)。
 
 ## 三步安装
 
